@@ -1,4 +1,4 @@
-import { OpenAIStream } from 'ai';
+import { OpenAIStream } from 'ai/streams';
 
 // Define types for the AI response
 export interface AIResponse {
