@@ -6,6 +6,10 @@ import ResponseDisplay from '@/components/ResponseDisplay'
 import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 
+// 设置页面为动态渲染
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export default function Home() {
   const [responses, setResponses] = useState<string[]>([])
   const t = useTranslations('Index')
