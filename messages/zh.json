@@ -2,5 +2,26 @@
   "Index": {
     "title": "拒绝拖延",
     "description": "告别拖延，从现在开始。输入你的拖延想法，获取个性化的克服方案。"
+  },
+  "Form": {
+    "title": "拒绝拖延",
+    "thoughtLabel": "你正在拖延什么?",
+    "thoughtPlaceholder": "例如: 我应该开始写报告，但我一直在刷手机...",
+    "severityLabel": "拖延严重程度: {severity}",
+    "severityLow": "轻度拖延",
+    "severityHigh": "严重拖延",
+    "submitButton": "开始拒绝拖延",
+    "loading": "正在思考...",
+    "errorEmptyThought": "请输入拖延的想法",
+    "errorEmptyThoughtDesc": "请先告诉我你在拖延什么",
+    "errorFetchResponse": "获取回复失败",
+    "errorFetchResponseDesc": "请稍后再试"
+  },
+  "Response": {
+    "noResponseTitle": "暂无回复内容，请重试",
+    "restartButton": "重新开始",
+    "title": "你的个性化拒绝拖延方案",
+    "copiedTitle": "已复制到剪贴板",
+    "copiedDesc": "你可以将这段话粘贴到任何地方"
   }
 }

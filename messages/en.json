@@ -2,5 +2,26 @@
   "Index": {
     "title": "Reject Procrastination",
     "description": "Say goodbye to procrastination, starting now. Enter your procrastination thoughts and get personalized solutions."
+  },
+  "Form": {
+    "title": "Reject Procrastination",
+    "thoughtLabel": "What are you procrastinating on?",
+    "thoughtPlaceholder": "For example: I should start writing the report, but I keep scrolling on my phone...",
+    "severityLabel": "Procrastination Severity: {severity}",
+    "severityLow": "Mild",
+    "severityHigh": "Severe",
+    "submitButton": "Start Rejecting Procrastination",
+    "loading": "Thinking...",
+    "errorEmptyThought": "Please enter your procrastination thought",
+    "errorEmptyThoughtDesc": "Please tell me what you're procrastinating on",
+    "errorFetchResponse": "Failed to get response",
+    "errorFetchResponseDesc": "Please try again later"
+  },
+  "Response": {
+    "noResponseTitle": "No responses yet, please try again",
+    "restartButton": "Start Over",
+    "title": "Your Personalized Anti-Procrastination Solutions",
+    "copiedTitle": "Copied to clipboard",
+    "copiedDesc": "You can paste this text anywhere"
   }
 }

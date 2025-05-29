@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { Copy } from 'lucide-react'
 import { useToast } from "@/components/ui/use-toast"
+import { useTranslations } from 'next-intl'
 
 interface ResponseDisplayProps {
   responses: string[]
@@ -15,17 +16,18 @@ interface ResponseDisplayProps {
 export default function ResponseDisplay({ responses, onReset }: ResponseDisplayProps) {
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null)
   const { toast } = useToast()
+  const t = useTranslations('Response')
 
   if (!responses || !responses.length) {
     return (
       <Card className="bg-black/40 backdrop-blur-sm border border-gray-800 shadow-lg">
         <CardContent className="p-6 text-center">
-          <p className="text-gray-400">暂无回复内容，请重试</p>
+          <p className="text-gray-400">{t('noResponseTitle')}</p>
           <Button 
             onClick={onReset}
             className="mt-4 bg-gray-800 hover:bg-gray-700 text-gray-200"
           >
-            重新开始
+            {t('restartButton')}
           </Button>
         </CardContent>
       </Card>
@@ -36,8 +38,8 @@ export default function ResponseDisplay({ responses, onReset }: ResponseDisplayP
     navigator.clipboard.writeText(text)
     setCopiedIndex(index)
     toast({
-      title: "已复制到剪贴板",
-      description: "你可以将这段话粘贴到任何地方",
+      title: t('copiedTitle'),
+      description: t('copiedDesc'),
     })
     
     // Reset the copied state after 2 seconds
@@ -69,7 +71,7 @@ export default function ResponseDisplay({ responses, onReset }: ResponseDisplayP
       <Card className="bg-black/40 backdrop-blur-sm border border-gray-800 shadow-lg mb-6">
         <CardHeader className="pb-2">
           <CardTitle className="text-xl font-bold text-center text-gray-100">
-            你的个性化拒绝拖延方案
+            {t('title')}
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -96,7 +98,7 @@ export default function ResponseDisplay({ responses, onReset }: ResponseDisplayP
             onClick={onReset}
             className="w-full mt-4 bg-gray-800 hover:bg-gray-700 text-gray-200"
           >
-            重新开始
+            {t('restartButton')}
           </Button>
         </CardContent>
       </Card>

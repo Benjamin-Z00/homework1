@@ -4,9 +4,12 @@ import React, { useState } from 'react'
 import ProcrastinationForm from '@/components/ProcrastinationForm'
 import ResponseDisplay from '@/components/ResponseDisplay'
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
+import LocaleSwitcher from '@/components/LocaleSwitcher'
 
 export default function Home() {
   const [responses, setResponses] = useState<string[]>([])
+  const t = useTranslations('Index')
   
   const handleResponses = (newResponses: string[]) => {
     setResponses(newResponses)
@@ -26,10 +29,10 @@ export default function Home() {
           transition={{ duration: 0.5 }}
         >
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-2 bg-gradient-to-r from-blue-400 via-purple-500 to-blue-400 bg-clip-text text-transparent">
-            拒绝拖延
+            {t('title')}
           </h1>
           <p className="text-gray-400 text-sm sm:text-base max-w-md mx-auto">
-            告别拖延，从现在开始。输入你的拖延想法，获取个性化的克服方案。
+            {t('description')}
           </p>
         </motion.div>
       </header>
@@ -49,7 +52,10 @@ export default function Home() {
       
       </div>
       <footer className="w-full pt-8 pb-4 text-center text-xs text-gray-500">
-        © {new Date().getFullYear()} 拒绝拖延 | Powered by DeepSeek AI
+        <div className="mb-2">
+          <LocaleSwitcher />
+        </div>
+        © {new Date().getFullYear()} {t('title')} | Powered by DeepSeek AI
       </footer>
     </div>
   )
