@@ -1,10 +1,11 @@
 import '../globals.css';
 import { Inter } from 'next/font/google';
-import { ThemeProvider } from '@/components/ThemeProvider';
+import { unstable_setRequestLocale } from 'next-intl/server';
+import { NextIntlClientProvider } from 'next-intl';
+import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
 import Background from '@/components/Background';
 import HistoryDrawer from '@/components/HistoryDrawer';
-import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -28,20 +29,20 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  const messages = await getMessages(locale);
+  unstable_setRequestLocale(locale);
+
+  let messages;
+  try {
+    messages = await getMessages(locale);
+  } catch (error) {
+    notFound();
+  }
 
   return (
-    <html 
-    lang={locale}
-    className="dark"
-    style={{ colorScheme: 'dark' }}>
+    <html lang={locale} className="dark" style={{ colorScheme: 'dark' }}>
       <body className={inter.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <ThemeProvider 
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem={false}
-          >
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
             <Background />
             <main className="min-h-screen relative">
               {children}
