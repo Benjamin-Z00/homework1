@@ -51,6 +51,12 @@ export default async function LocaleLayout({
             <HistoryDrawer />
           </ThemeProvider>
         </NextIntlClientProvider>
+        <script defer data-domain="librogarden.com" src="https://plausible.io/js/script.hash.outbound-links.pageview-props.revenue.tagged-events.js" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }`,
+          }}
+        />
       </body>
     </html>
   );
